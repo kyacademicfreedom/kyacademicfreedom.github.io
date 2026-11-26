@@ -73,8 +73,16 @@
     border-radius: 6px;
   }
   .button:hover { text-decoration: underline; }
-  .cta p { margin: 0.6rem 0 0; font-size: 0.95rem; color: var(--muted); }
-  .cta .secondary { margin-top: 0.9rem; font-size: 1.05rem; color: var(--text); }
+  .cta p { margin: 0.5rem 0 0; font-size: 0.95rem; color: var(--muted); text-align: center; }
+  .button-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1rem; }
+  .button-row .button { flex: 1 1 12rem; }
+  .button-secondary {
+    background: transparent;
+    color: var(--link);
+    border: 2px solid var(--link);
+    font-size: 1.05rem;
+    padding: 0.7rem 1rem;
+  }
   .deadline { font-weight: bold; }
   .pdf-frame {
     display: block;
@@ -89,17 +97,6 @@
     .pdf-frame { display: none; }
   }
   .notice { margin-bottom: 1.25rem; }
-  .share-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; }
-  .share-row button {
-    font: inherit;
-    font-size: 1rem;
-    padding: 0.5rem 0.9rem;
-    border-radius: 6px;
-    border: 1px solid var(--rule);
-    background: var(--panel);
-    color: var(--text);
-    cursor: pointer;
-  }
   footer { margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--rule); font-size: 0.95rem; color: var(--muted); }
 </style>
 </head>
@@ -113,13 +110,15 @@
 
 <section class="cta" aria-label="Sign or comment">
   <a class="button" href="https://forms.gle/saYUSL7wnVYvwNVD7">Sign or comment on the letter</a>
-  <p>Open until Nov. 29 at 8 p.m. Eastern. Opens a Google Form; read the <a href="#privacy">privacy note</a> first.</p>
-  <p class="secondary"><a href="UKY_Open_Letter.pdf">Read the letter (PDF, 6 pages)</a> · <a href="UKY_Open_Letter.pdf" download>Download the PDF</a></p>
+  <p>Open until Nov. 29 at 8 p.m. Eastern.</p>
+  <div class="button-row">
+    <a class="button button-secondary" href="UKY_Open_Letter.pdf">Read the letter (PDF)</a>
+    <a class="button button-secondary" href="UKY_Open_Letter.pdf" download>Download the PDF</a>
+  </div>
 </section>
 
 <h2 id="take-part">How to take part</h2>
 <ol>
-  <li><strong>Read the letter.</strong> <a href="#letter">The full letter</a> is below and available as a PDF.</li>
   <li><strong>Sign or comment by Nov. 29 at 8 p.m. Eastern</strong> using the <a href="https://forms.gle/saYUSL7wnVYvwNVD7">signature and comment form</a>. It matches the signature sections at the end of the letter. You can:
     <ul>
       <li>agree with the letter;</li>
@@ -129,12 +128,7 @@
     </ul>
   </li>
   <li><strong>Send your own comment to the University</strong> before Nov. 30 using the University’s <a href="https://regs.uky.edu/form/ar-draft-technology-resources-an">feedback form for the IT regulation</a>. The letter is not a substitute for your own comment.</li>
-  <li><strong>Share this page.</strong>
-    <span class="share-row" id="share-row" hidden>
-      <button type="button" id="share-button">Copy link to this page</button>
-      <span id="share-status" role="status"></span>
-    </span>
-  </li>
+  <li><strong>Please share this page.</strong></li>
 </ol>
 
 <h2 id="sources">The regulation and the University’s response</h2>
@@ -145,7 +139,7 @@
 </ul>
 
 <h2 id="letter">The letter</h2>
-<p>The PDF is the official text. It has selectable, searchable text, so you can copy from it, search it, or have your device read it aloud. <a href="UKY_Open_Letter.pdf">Open the letter (PDF)</a> or <a href="UKY_Open_Letter.pdf" download>download it</a>.</p>
+<p><a href="UKY_Open_Letter.pdf">Open the letter (PDF)</a> or <a href="UKY_Open_Letter.pdf" download>download it</a>.</p>
 <object class="pdf-frame" data="UKY_Open_Letter.pdf" type="application/pdf" aria-label="The open letter, embedded PDF">
   <p>Your browser can’t show the PDF here. <a href="UKY_Open_Letter.pdf">Open the letter (PDF)</a> instead.</p>
 </object>
@@ -166,30 +160,5 @@
 </footer>
 
 </main>
-<script>
-  (function () {
-    var row = document.getElementById('share-row');
-    var button = document.getElementById('share-button');
-    var status = document.getElementById('share-status');
-    var url = location.href.split('#')[0];
-    if (navigator.share) {
-      button.textContent = 'Share this page';
-    } else if (!(navigator.clipboard && navigator.clipboard.writeText)) {
-      return;
-    }
-    row.hidden = false;
-    button.addEventListener('click', function () {
-      if (navigator.share) {
-        navigator.share({ title: document.title, url: url }).catch(function () {});
-        return;
-      }
-      navigator.clipboard.writeText(url).then(function () {
-        status.textContent = 'Link copied.';
-      }, function () {
-        status.textContent = 'Couldn’t copy. The link is: ' + url;
-      });
-    });
-  })();
-</script>
 </body>
 </html>
