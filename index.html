@@ -73,15 +73,7 @@
     padding: 2.75rem 0 5.5rem;
     border-top: 5px solid var(--accent);
   }
-  .kicker {
-    font-family: var(--sans);
-    font-size: 0.8rem;
-    font-weight: 600;
-    letter-spacing: 0.16em;
-    text-transform: uppercase;
-    color: var(--band-muted);
-    margin: 0 0 0.75rem;
-  }
+  .h1-lead { display: block; }
   h1 {
     font-size: clamp(1.9rem, 5.5vw, 2.75rem);
     line-height: 1.15;
@@ -90,16 +82,6 @@
     letter-spacing: -0.01em;
   }
   .lede { font-size: 1.2rem; color: var(--band-muted); margin: 0 0 1.25rem; max-width: 36rem; }
-  .badge {
-    display: inline-block;
-    font-family: var(--sans);
-    font-size: 0.9rem;
-    font-weight: 600;
-    background: var(--badge-bg);
-    color: var(--badge-text);
-    padding: 0.35rem 0.75rem;
-    border-radius: 999px;
-  }
 
   /* Call to action card */
   .cta {
@@ -128,7 +110,8 @@
     padding: 1rem 1.25rem;
   }
   .button-primary:hover { background: var(--accent-hover); }
-  .cta-note { font-family: var(--sans); font-size: 0.92rem; color: var(--muted); text-align: center; margin: 0.6rem 0 0; }
+  .cta-note { font-family: var(--sans); font-size: 0.95rem; color: var(--muted); text-align: center; margin: 0.75rem 0 0; }
+  .cta-note strong { color: var(--text); }
   .button-row { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 1.25rem; padding-top: 1.25rem; border-top: 1px solid var(--rule); }
   .button-row .button { flex: 1 1 12rem; }
   .button-secondary {
@@ -240,10 +223,8 @@
 
 <header class="masthead">
   <div class="wrap">
-    <p class="kicker">Open Letter</p>
-    <h1>To the University of Kentucky’s President</h1>
+    <h1><span class="h1-lead">Open Letter</span> to the University of Kentucky’s President</h1>
     <p class="lede">An open letter opposing the University’s proposed IT regulation. Anyone can sign or comment.</p>
-    <span class="badge">Signatures close Nov. 29 at 8 p.m. ET</span>
   </div>
 </header>
 
@@ -251,7 +232,7 @@
 
 <section class="cta" aria-label="Sign or comment">
   <a class="button button-primary" href="https://forms.gle/saYUSL7wnVYvwNVD7">Sign or comment on the letter</a>
-  <p class="cta-note">The University’s own public comment period closes Nov. 30.</p>
+  <p class="cta-note"><strong>Signatures close Nov. 29 at 8 p.m. ET.</strong> The University’s own comment period closes Nov. 30.</p>
   <div class="button-row">
     <a class="button button-secondary" href="UKY_Open_Letter.pdf">Read the letter (PDF)</a>
     <a class="button button-secondary" href="UKY_Open_Letter.pdf" download>Download the PDF</a>
@@ -288,13 +269,13 @@
       <span class="title">The draft IT regulation (PDF)</span>
       <span class="desc">Draft dated Oct. 30, 2026, posted by the University.</span>
     </a></li>
-    <li><a href="https://regs.uky.edu/campus-review-ars">
-      <span class="title">Campus review page for proposed regulations</span>
-      <span class="desc">Links the draft and the University’s feedback form.</span>
+    <li><a href="https://regs.uky.edu/form/ar-draft-technology-resources-an">
+      <span class="title">The University’s public comment form</span>
+      <span class="desc">Submit your own feedback on the draft directly to the University. Open through Nov. 30.</span>
     </a></li>
     <li><a href="https://regs.uky.edu/news/information-technology-ar-period-extended-nov-30">
-      <span class="title">The University’s Nov. 16, 2026 notice</span>
-      <span class="desc">Extends the comment period to Nov. 30.</span>
+      <span class="title">The University’s response (Nov. 16, 2026)</span>
+      <span class="desc">Extended public comment by two weeks and said the draft “focuses on employees’ use of university technology and resources, not students or visitors.”</span>
     </a></li>
   </ul>
 </section>
@@ -310,8 +291,7 @@
   <div class="notices">
     <div class="notice" id="privacy">
       <h3>Privacy</h3>
-      <p>The author does not want your data and is not collecting it. The signature and comment form runs on Google Forms, and the author can’t control what Google does with what you enter. If that matters to you, don’t use the form, or use the anonymous option and leave out identifying details.</p>
-      <p>This page itself uses no analytics, cookies, or tracking.</p>
+      <p>This site collects nothing: no analytics, cookies, or tracking. The form runs on Google Forms and requires a Google sign-in to keep out bots; Google’s privacy terms apply. To stay anonymous, choose the anonymous option and leave out identifying details.</p>
     </div>
     <div class="notice" id="distribution">
       <h3>Distribution</h3>
