@@ -191,6 +191,10 @@
     background: #ffffff;
     box-shadow: var(--shadow);
   }
+  @media (min-width: 64rem) {
+    /* Let the viewer run wider than the text column on big screens. */
+    .pdf-frame { width: min(60rem, calc(100vw - 4rem)); margin-left: 50%; transform: translateX(-50%); }
+  }
   @media (max-width: 40rem) {
     /* Phone browsers render embedded PDFs poorly; the buttons above do the job. */
     .pdf-frame { display: none; }
@@ -283,7 +287,7 @@
 <section class="block" aria-labelledby="letter">
   <h2 id="letter">The letter</h2>
   <p><a href="UKY_Open_Letter.pdf">Open the letter (PDF)</a> or <a href="UKY_Open_Letter.pdf" download>download it</a>.</p>
-  <iframe class="pdf-frame" src="UKY_Open_Letter.pdf#view=FitH" title="The open letter (PDF)"></iframe>
+  <iframe class="pdf-frame" src="UKY_Open_Letter.pdf#toolbar=0&amp;navpanes=0&amp;view=FitH" title="The open letter (PDF)"></iframe>
 </section>
 
 <section class="block" aria-labelledby="notices">
